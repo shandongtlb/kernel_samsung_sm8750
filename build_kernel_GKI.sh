@@ -20,7 +20,7 @@ export ANDROID_PRODUCT_OUT=${ANDROID_BUILD_TOP}/out/target/product/${MODEL}
 export OUT_DIR=${ANDROID_BUILD_TOP}/out/msm-${CHIPSET_NAME}-${CHIPSET_NAME}-${TARGET_PRODUCT}
 
 # for Lcd(techpack) driver build
-export KBUILD_EXTRA_SYMBOLS=${ANDROID_BUILD_TOP}/out/vendor/qcom/opensource/mmrm-driver/Module.symvers
+export KBUILD_EXTRA_SYMBOLS="${ANDROID_BUILD_TOP}/out/vendor/qcom/opensource/mmrm-driver/Module.symvers ${ANDROID_BUILD_TOP}/out/target/product/${MODEL}/obj/DLKM_OBJ/vendor/qcom/opensource/wlan/platform/Module.symvers"
 
 # for Audio(techpack) driver build
 export MODNAME=audio_dlkm
@@ -31,8 +31,11 @@ export KBUILD_EXT_MODULES="\
         ../vendor/qcom/opensource/mm-drivers/sync_fence \
         ../vendor/qcom/opensource/mm-drivers/hw_fence \
         ../vendor/qcom/opensource/securemsm-kernel \
+        ../vendor/qcom/opensource/wlan/platform \
+        ../vendor/qcom/opensource/wlan/qcacld-3.0 \
         "
 
 #3. build kernel
 cd ./kernel_platform/
-RECOMPILE_KERNEL=1 ./build/android/prepare_vendor.sh ${CHIPSET_NAME} ${TARGET_PRODUCT} gki | tee -a ../build.log
+mkdir -p vendor/qcom/proprietary/devicetree
+IS_KBUILD=true RECOMPILE_KERNEL=1 ./build/android/prepare_vendor.sh ${CHIPSET_NAME} ${TARGET_PRODUCT} gki | tee -a ../build.log

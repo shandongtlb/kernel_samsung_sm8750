@@ -575,14 +575,17 @@ if [  -d "${ANDROID_BUILD_TOP}/vendor/qcom/proprietary/devicetree" ]; then
 
     # Kbuild Step 1.
     KBUILD_EXT_MODULES="\
-       	    ../vendor/qcom/opensource/mmrm-driver \
+            ../vendor/qcom/opensource/mmrm-driver \
             ../vendor/qcom/opensource/mm-drivers/msm_ext_display \
             ../vendor/qcom/opensource/mm-drivers/sync_fence \
             ../vendor/qcom/opensource/mm-drivers/hw_fence \
             ../vendor/qcom/opensource/securemsm-kernel \
+            ../vendor/qcom/opensource/wlan/platform \
             "
-  
-    echo "  Kbuild Step1. : Compiling vendor android/vendor/opensource"
+
+    echo "=== ENTER WLAN STEP1 ==="
+    touch /tmp/wlan_step1_hit
+    echo "  Kbuild Step1. : Compiling vendor android/vendor/opensource + wlan/platform"
     (
       cd ${ROOT_DIR}
       set -x
@@ -590,41 +593,71 @@ if [  -d "${ANDROID_BUILD_TOP}/vendor/qcom/proprietary/devicetree" ]; then
       OUT_DIR=${ANDROID_EXT_MODULES_OUT} \
       EXT_MODULES="${KBUILD_EXT_MODULES}" \
       KERNEL_KIT=${ANDROID_KERNEL_OUT} \
+      TARGET_BOARD_PLATFORM=sun \
       ./build/build_module.sh modules
       set +x
     )
-  
-  
-    # Kbuild Step 2.
-    KBUILD_EXT_MODULES="\
-          ../vendor/qcom/opensource/display-drivers/msm \
-  	  ../vendor/qcom/opensource/camera-kernel \
-  	  "
 
-    KBUILD_DISPLAY_EXTRA_SYMBOLS="\
-          ${ANDROID_EXT_MODULES_COMMON_OUT}/vendor/qcom/opensource/mmrm-driver/Module.symvers \
-          ${ANDROID_EXT_MODULES_COMMON_OUT}/vendor/qcom/opensource/mm-drivers/sync_fence/Module.symvers \
-          ${ANDROID_EXT_MODULES_COMMON_OUT}/vendor/qcom/opensource/mm-drivers/msm_ext_display/Module.symvers \
-          ${ANDROID_EXT_MODULES_COMMON_OUT}/vendor/qcom/opensource/mm-drivers/hw_fence/Module.symvers \
-          ${ANDROID_EXT_MODULES_COMMON_OUT}/vendor/qcom/opensource/securemsm-kernel/Module.symvers \
+
+    # Kbuild Step 2. (temporarily disabled; keep for future research)
+    # Current blocker: display-drivers/msm fails on missing panel_data_file/*.dat and *.conf inputs.
+    # KBUILD_EXT_MODULES="\
+    #       ../vendor/qcom/opensource/display-drivers/msm \
+    #       ../vendor/qcom/opensource/camera-kernel \
+    #       "
+    #
+    # KBUILD_DISPLAY_EXTRA_SYMBOLS="\
+    #       ${ANDROID_EXT_MODULES_COMMON_OUT}/vendor/qcom/opensource/mmrm-driver/Module.symvers \
+    #       ${ANDROID_EXT_MODULES_COMMON_OUT}/vendor/qcom/opensource/mm-drivers/sync_fence/Module.symvers \
+    #       ${ANDROID_EXT_MODULES_COMMON_OUT}/vendor/qcom/opensource/mm-drivers/msm_ext_display/Module.symvers \
+    #       ${ANDROID_EXT_MODULES_COMMON_OUT}/vendor/qcom/opensource/mm-drivers/hw_fence/Module.symvers \
+    #       ${ANDROID_EXT_MODULES_COMMON_OUT}/vendor/qcom/opensource/securemsm-kernel/Module.symvers \
+    #       "
+    #
+    # echo "  Kbuild Step2. : Compiling vendor android/vendor/opensource"
+    # (
+    #   cd ${ROOT_DIR}
+    #   set -x
+    #   export ENABLE_DDK_BUILD=true
+    #   OUT_DIR=${ANDROID_EXT_MODULES_OUT} \
+    #   EXT_MODULES="${KBUILD_EXT_MODULES}" \
+    #   KBUILD_EXTRA_SYMBOLS="${KBUILD_DISPLAY_EXTRA_SYMBOLS}" \
+    #   KERNEL_KIT=${ANDROID_KERNEL_OUT} \
+    #   ./build/build_module.sh modules
+    #   set +x
+    # )
+
+
+    # Kbuild Step 3.
+    KBUILD_EXT_MODULES="\
+          ../vendor/qcom/opensource/wlan/qcacld-3.0 \
           "
-  
-    echo "  Kbuild Step2. : Compiling vendor android/vendor/opensource"
+
+    KBUILD_WLAN_EXTRA_SYMBOLS="\
+          ${ANDROID_EXT_MODULES_COMMON_OUT}/vendor/qcom/opensource/wlan/platform/Module.symvers \
+          "
+
+    echo "=== ENTER WLAN STEP3 ==="
+    touch /tmp/wlan_step3_hit
+    echo "  Kbuild Step3. : Compiling vendor android/vendor/opensource wlan/qcacld-3.0"
     (
       cd ${ROOT_DIR}
       set -x
       export ENABLE_DDK_BUILD=true
       OUT_DIR=${ANDROID_EXT_MODULES_OUT} \
       EXT_MODULES="${KBUILD_EXT_MODULES}" \
-      KBUILD_EXTRA_SYMBOLS="${KBUILD_DISPLAY_EXTRA_SYMBOLS}" \
+      KBUILD_EXTRA_SYMBOLS="${KBUILD_WLAN_EXTRA_SYMBOLS}" \
       KERNEL_KIT=${ANDROID_KERNEL_OUT} \
+      TARGET_BOARD_PLATFORM=sun \
+      SUBTARGET_REGEX=all_modules \
       ./build/build_module.sh modules
       set +x
     )
   fi
+fi
+fi
 
-fi
-fi
+
 
 HOST_TOOLS=${ANDROID_EXT_MODULES_OUT}/msm-kernel/host_tools
 BUILD_TOOLS=${ROOT_DIR}/build/kernel/build-tools
