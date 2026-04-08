@@ -1,0 +1,1 @@
+/home/sdtlb/kernel/kernel_platform/common/include/dt-bindings/clock/hi3660-clock.h

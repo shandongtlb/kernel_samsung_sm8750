@@ -1,0 +1,1 @@
+/home/sdtlb/kernel/kernel_platform/common/include/soc/tegra/bpmp-abi.h

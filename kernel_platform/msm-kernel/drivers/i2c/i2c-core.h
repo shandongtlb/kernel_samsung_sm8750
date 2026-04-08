@@ -1,0 +1,1 @@
+/home/sdtlb/kernel/kernel_platform/common/drivers/i2c/i2c-core.h

@@ -1,0 +1,131 @@
+#include "sun-camera-sensor-q7mq-pinctrl-r02.dtsi"
+
+&tlmm {
+
+	wide_a_ldo_en_active: wide_a_ldo_en_active {
+		mux {
+			pins = "gpio195";
+			function = "gpio";
+		};
+
+		config {
+			pins = "gpio195";
+			bias-disable;
+			drive-strength = <2>;
+		};
+	};
+
+	wide_a_ldo_en_suspend: wide_a_ldo_en_suspend {
+		mux {
+			pins = "gpio195";
+			function = "gpio";
+		};
+
+		config {
+			pins = "gpio195";
+			bias-disable;
+			drive-strength = <2>;
+			output-low;
+		};
+	};
+};
+
+&cam_sensor_active_rst0 {
+	mux {
+		pins = "gpio60";
+	};
+
+	config {
+		pins = "gpio60";
+	};
+};
+
+&cam_sensor_suspend_rst0 {
+	mux {
+		pins = "gpio60";
+	};
+
+	config {
+		pins = "gpio60";
+	};
+};
+
+&cam_sensor_active_rst1{
+	mux{
+		pins = "gpio83";
+	};
+
+	config {
+		pins = "gpio83";
+	};
+};
+
+&cam_sensor_suspend_rst1{
+	mux{
+		pins = "gpio83";
+	};
+
+	config {
+		pins = "gpio83";
+	};
+};
+
+&cam_sensor_active_rst2{
+	mux{
+		pins="gpio125";
+	};
+
+	config{
+		pins="gpio125";
+	};	
+};
+
+&cam_sensor_suspend_rst2{
+	mux{
+		pins="gpio125";
+	};
+
+	config{
+		pins="gpio125";
+	};	
+};
+
+&cam_sensor_active_rst3{
+	mux{
+		pins="gpio194";
+	};
+
+	config{
+		pins="gpio194";
+	};	
+};
+
+&cam_sensor_suspend_rst3{
+	mux{
+		pins="gpio194";
+	};
+
+	config{
+		pins="gpio194";
+	};	
+};
+
+&cam_sensor_active_rst4{
+	mux{
+		pins="gpio214";
+	};
+
+	config{
+		pins="gpio214";
+	};	
+};
+
+&cam_sensor_suspend_rst4{
+	mux{
+		pins="gpio214";
+	};
+
+	config{
+		pins="gpio214";
+	};	
+};

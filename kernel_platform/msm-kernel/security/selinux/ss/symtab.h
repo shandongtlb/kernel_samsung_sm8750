@@ -1,0 +1,1 @@
+/home/sdtlb/kernel/kernel_platform/common/security/selinux/ss/symtab.h

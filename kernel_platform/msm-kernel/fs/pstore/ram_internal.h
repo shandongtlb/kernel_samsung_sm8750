@@ -1,0 +1,1 @@
+/home/sdtlb/kernel/kernel_platform/common/fs/pstore/ram_internal.h

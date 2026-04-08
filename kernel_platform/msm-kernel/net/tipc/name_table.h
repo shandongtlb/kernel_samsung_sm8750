@@ -1,0 +1,1 @@
+/home/sdtlb/kernel/kernel_platform/common/net/tipc/name_table.h

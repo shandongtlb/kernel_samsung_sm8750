@@ -1,0 +1,1 @@
+/home/sdtlb/kernel/kernel_platform/common/include/uapi/sound/asequencer.h

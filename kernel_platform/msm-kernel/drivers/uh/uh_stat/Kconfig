@@ -1,0 +1,10 @@
+config UH_STAT
+	tristate "Profiling uH"
+	depends on RKP
+	depends on !ARCH_QTI_VM
+	default n
+	help
+	  It is for checking time between entry and exits to EL2 in follow items.
+	  1. hvc call
+	  2. tvm trap
+	  3. RO execption

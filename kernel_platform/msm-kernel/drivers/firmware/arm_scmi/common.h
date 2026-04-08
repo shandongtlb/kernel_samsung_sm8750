@@ -1,0 +1,1 @@
+/home/sdtlb/kernel/kernel_platform/common/drivers/firmware/arm_scmi/common.h

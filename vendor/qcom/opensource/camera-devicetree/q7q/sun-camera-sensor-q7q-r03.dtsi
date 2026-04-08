@@ -1,0 +1,11 @@
+#include "sun-camera-sensor-q7q-r01.dtsi"
+
+&pm_humu_l16 {
+	regulator-min-microvolt = <3300000>;
+	regulator-max-microvolt = <3300000>;
+	qcom,init-voltage = <3300000>;
+};
+
+&ois_rear_tele {
+	cam_vaf-supply = <&pm_humu_l16>;	/* VDD_TELECAM_OIS_3P3 */
+};

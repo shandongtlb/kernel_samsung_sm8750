@@ -1,0 +1,1 @@
+/home/sdtlb/kernel/kernel_platform/common/block/partitions/efi.h

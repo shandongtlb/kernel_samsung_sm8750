@@ -1,0 +1,33 @@
+#include "sun-camera-sensor-q7q-pinctrl-r01.dtsi"
+
+/delete-node/ &wide_a_ldo_en_active;
+/delete-node/ &wide_a_ldo_en_suspend;
+
+&tlmm {
+	wide_a_ldo_en_active: wide_a_ldo_en_active {
+		mux {
+			pins = "gpio97";
+			function = "gpio";
+		};
+
+		config {
+			pins = "gpio97";
+			bias-disable;
+			drive-strength = <2>;
+		};
+	};
+
+	wide_a_ldo_en_suspend: wide_a_ldo_en_suspend {
+		mux {
+			pins = "gpio97";
+			function = "gpio";
+		};
+
+		config {
+			pins = "gpio97";
+			bias-disable;
+			drive-strength = <2>;
+			output-low;
+		};
+	};
+};

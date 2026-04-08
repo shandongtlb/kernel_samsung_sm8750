@@ -1,0 +1,1 @@
+/home/sdtlb/kernel/kernel_platform/common/drivers/media/v4l2-core/v4l2-ctrls-priv.h

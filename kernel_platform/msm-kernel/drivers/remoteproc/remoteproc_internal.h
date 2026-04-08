@@ -1,0 +1,1 @@
+/home/sdtlb/kernel/kernel_platform/common/drivers/remoteproc/remoteproc_internal.h

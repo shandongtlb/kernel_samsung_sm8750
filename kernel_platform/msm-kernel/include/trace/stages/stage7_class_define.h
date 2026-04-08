@@ -1,0 +1,1 @@
+/home/sdtlb/kernel/kernel_platform/common/include/trace/stages/stage7_class_define.h

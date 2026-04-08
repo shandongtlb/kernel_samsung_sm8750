@@ -1,0 +1,1 @@
+/home/sdtlb/kernel/kernel_platform/common/sound/usb/mixer_us16x08.h

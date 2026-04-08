@@ -1,0 +1,1 @@
+TARGET_BUILD_VARIANT:=user

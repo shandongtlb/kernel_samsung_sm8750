@@ -1,0 +1,1 @@
+/home/sdtlb/kernel/kernel_platform/common/include/dt-bindings/pinctrl/pinctrl-tegra-io-pad.h

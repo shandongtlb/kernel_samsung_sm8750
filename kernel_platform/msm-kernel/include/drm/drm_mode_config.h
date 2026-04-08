@@ -1,0 +1,1 @@
+/home/sdtlb/kernel/kernel_platform/common/include/drm/drm_mode_config.h

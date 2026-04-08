@@ -1,0 +1,1 @@
+/home/sdtlb/kernel/kernel_platform/common/include/dt-bindings/i2c/i2c.h

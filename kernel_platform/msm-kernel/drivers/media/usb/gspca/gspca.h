@@ -1,0 +1,1 @@
+/home/sdtlb/kernel/kernel_platform/common/drivers/media/usb/gspca/gspca.h

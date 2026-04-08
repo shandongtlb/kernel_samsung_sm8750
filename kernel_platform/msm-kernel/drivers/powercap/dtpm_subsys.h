@@ -1,0 +1,1 @@
+/home/sdtlb/kernel/kernel_platform/common/drivers/powercap/dtpm_subsys.h

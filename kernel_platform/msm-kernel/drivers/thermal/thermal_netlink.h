@@ -1,0 +1,1 @@
+/home/sdtlb/kernel/kernel_platform/common/drivers/thermal/thermal_netlink.h

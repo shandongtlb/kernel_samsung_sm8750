@@ -1,0 +1,1 @@
+/home/sdtlb/kernel/kernel_platform/common/include/trace/events/i2c.h

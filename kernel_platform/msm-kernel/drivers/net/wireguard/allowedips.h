@@ -1,0 +1,1 @@
+/home/sdtlb/kernel/kernel_platform/common/drivers/net/wireguard/allowedips.h

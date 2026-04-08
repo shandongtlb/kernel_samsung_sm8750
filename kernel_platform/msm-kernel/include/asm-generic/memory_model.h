@@ -1,0 +1,1 @@
+/home/sdtlb/kernel/kernel_platform/common/include/asm-generic/memory_model.h

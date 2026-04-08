@@ -1,0 +1,1 @@
+/home/sdtlb/kernel/kernel_platform/common/drivers/rpmsg/rpmsg_internal.h

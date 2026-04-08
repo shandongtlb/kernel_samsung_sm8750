@@ -1,0 +1,1 @@
+/home/sdtlb/kernel/kernel_platform/common/include/linux/rwlock_api_smp.h

@@ -1,0 +1,109 @@
+#include "sun-camera-sensor-q7mq-pinctrl-common.dtsi"
+
+&tlmm {
+
+	flash_led_active: flash_led_active {
+		mux {
+			pins = "gpio170";
+			function = "gpio";
+		};
+
+		config {
+			pins = "gpio170";
+			bias-disable;
+			drive-strength = <2>;
+		};
+	};
+
+	flash_led_suspend: flash_led_suspend {
+		mux {
+			pins = "gpio170";
+			function = "gpio";
+		};
+
+		config {
+			pins = "gpio170";
+			bias-disable;
+			drive-strength = <2>;
+			output-low;
+		};
+	};
+};
+
+&cam_sensor_mclk5_active {
+	config {
+		drive-strength = <2>;
+	};
+};
+
+&cam_sensor_mclk5_suspend {
+	config {
+		drive-strength = <2>;
+		output-low;
+	};
+};
+
+&cam_sensor_mclk2_active {
+	config {
+		drive-strength = <4>; /* 4 MA */
+	};
+};
+
+&qupv3_hub_i2c2_sda_active {
+	config {
+		drive-strength = <6>;
+		bias-disable;
+	};
+};
+&qupv3_hub_i2c2_scl_active {
+	config {
+		drive-strength = <6>;
+		bias-disable;
+	};
+};
+&qupv3_hub_i2c2_sleep {
+	config {
+		drive-strength = <6>;
+	};
+};
+
+&qupv3_se8_i2c_sda_active {
+	config {
+		drive-strength = <6>;
+		bias-disable;
+		qcom,apps;
+	};
+};
+&qupv3_se8_i2c_scl_active {
+	config {
+		drive-strength = <6>;
+		bias-disable;
+		qcom,apps;
+	};
+};
+&qupv3_se8_i2c_sleep {
+	config {
+		drive-strength = <6>;
+		qcom,remote;
+	};
+};
+
+&qupv3_se9_i2c_sda_active {
+	config {
+		drive-strength = <6>;
+		bias-disable;
+	};
+};
+&qupv3_se9_i2c_scl_active {
+	config {
+		drive-strength = <6>;
+		bias-disable;
+	};
+};
+&qupv3_se9_i2c_sleep {
+	config {
+		drive-strength = <6>;
+		bias-disable;
+		input-enable;
+	};
+};

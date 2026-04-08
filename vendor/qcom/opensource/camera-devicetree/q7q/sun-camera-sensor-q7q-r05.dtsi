@@ -1,0 +1,5 @@
+#include "sun-camera-sensor-q7q-r03.dtsi"
+
+&sensor_rear_wide {
+	gpios = <&tlmm 89 0>, <&tlmm 109 0>, <&tlmm 97 0>, <&tlmm 94 0>;
+};
